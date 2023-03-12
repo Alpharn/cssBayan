@@ -1,0 +1,118 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 1em 1em;
+  margin: 0;
+  background: #ffc457;
+}
+input {
+  display: none;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 80rem; 
+}
+.tabs {
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.375rem 0.25rem rgb(0 0 0 / 5%);
+}
+.tab {
+  color: #0059d9;
+  background: #fff;
+  overflow: hidden;
+  border-bottom: 0.063rem solid rgb(0 0 0 / 5%);
+}
+.tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.fa-plus  {
+  display: none;
+  font-size: 1rem;
+} 
+input:checked ~ .tab-label .fa-plus{
+  transition:transform .5s ease-in-out;
+  transform:rotate(45deg);
+}
+.tab-content {
+  height: 0;
+  padding: 0 1em;
+  transition: all .35s;
+} 
+.tab-content img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(0);
+}
+input:checked + .tab-label {
+  background: #f7f7f7;
+  color: #000;
+}
+input:checked ~ .tab-content {
+  height: auto;
+  padding: 1em;
+}
+input:checked ~ .tab-content img {
+  height: auto;
+  padding: 1em;
+  opacity: 1;
+  transform: scale(1);
+  transition: all linear .5s;
+}
+.tab:active {
+  opacity: 0.9;
+}
+.tab:active  .tab-label{
+  color: #0059d9;
+}
+@media (min-width: 310px) {
+  .tab-label {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .tab-label {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1200px) {
+  .tab-label {
+    font-size: 1.5rem;
+  }
+}
+@media (hover: hover) {
+  .tabs:hover {
+    color: #000;
+    cursor: pointer;
+  }
+  .tabs:hover .tab-label {
+    color: #000;
+    transition: all linear .5s;
+  }
+  .tabs:hover .fa-plus{
+    display: inline-block;
+  }
+  .tab input:hover ~ .tab-label .fa-plus {
+    transition: transform .5s ease-in-out;
+    transform:rotate(45deg);
+  }
+  input:hover + .tab-label {
+    background: #f7f7f7;
+  }
+  .tab:hover input ~ .tab-content {
+    height: auto;
+    padding: 1em;
+  }
+  .tab:hover input ~ .tab-content img {
+    opacity: 1;
+    padding: 1em;
+    transform: scale(1);
+    transition: all linear .5s;
+  }
+}
